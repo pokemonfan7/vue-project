@@ -6,7 +6,9 @@
     <div class="content">
       <aside>Aside</aside>
       <main>
-        <el-button type="primary">主要按钮</el-button>
+        <router-link to="/test">
+          <el-button type="primary">去test页面</el-button>
+        </router-link>
       </main>
     </div>
   </div>
@@ -14,7 +16,6 @@
 
 <script>
 	export default {
-
 	}
 </script>
 
