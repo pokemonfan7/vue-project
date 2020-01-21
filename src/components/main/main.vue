@@ -17,7 +17,7 @@
 </template>
 
 <script>
-	import {mapState, mapGetters} from 'vuex'
+	import {mapState, mapGetters, mapActions} from 'vuex'
     import {GET_DATE} from '../../core/store/mutations'
 
 	export default {
@@ -27,6 +27,10 @@
 		},
         mounted() {
 			this.$store.commit(GET_DATE, Date.now())
+            this.threeHoursChangeDate()
+        },
+        methods: {
+			...mapActions(['threeHoursChangeDate'])
         }
 	}
 </script>
