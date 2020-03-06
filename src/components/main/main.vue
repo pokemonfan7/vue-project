@@ -51,7 +51,7 @@
       width: 100vw;
       height: calc(100vh - 62px);
       overflow: auto;
-      background-color: #ddd;
+      background-color: #777;
     }
   }
 </style>

@@ -26,12 +26,12 @@
 			}
 		},
 		created() {
-			this.pkmImgSrc = `../../assets/pokemon/${this.pkm.number}.png`
+			this.pkmImgSrc = require(`./pokemon/${this.pkm.number}.png`)
 		}
 	}
 </script>
 
-<style scoped type="text/less">
+<style scoped lang="less">
   .img-content {
     width: 210px;
     height: 210px;
