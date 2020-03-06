@@ -6,11 +6,9 @@
         <el-menu-item index="/test">测试页面</el-menu-item>
       </el-menu>
     </header>
-    <div class="content">
-      <main>
-        <router-view></router-view>
-      </main>
-    </div>
+    <main>
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
@@ -32,25 +30,26 @@
 </script>
 
 <style lang="less" scoped>
+  .el-menu.el-menu--horizontal {
+    border: none;
+  }
+
   .container {
     width: 100%;
     height: 100%;
   }
 
   header {
-    height: 50px;
-    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 60px;
+    border-bottom: 1px solid #dddddd;
   }
 
-  .content {
-    display: flex;
-    width: 100%;
-    height: 100%;
-
-    main {
+  main {
       width: 100vw;
       height: calc(100vh - 62px);
       overflow: auto;
     }
-  }
 </style>

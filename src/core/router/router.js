@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Main from '../../components/main/main'
 import Page1 from '../../components/pkm-list/pkm-list'
 import Test from '../../components/page2/page2'
-import NotFound from '../../components/noteFound/not-found'
+import NotFound from '../../components/note-found/not-found'
 
 Vue.use(VueRouter)
 
