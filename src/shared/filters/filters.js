@@ -3,3 +3,7 @@ import format from 'date-fns/format'
 Vue.filter('date-format', function (value, formatStr='yyyy-MM-dd HH:mm:ss') {
 	return format(value, formatStr)
 })
+
+Vue.filter('upper-first', function (text) {
+	return text.slice(0, 1).toUpperCase() + text.slice(1)
+})

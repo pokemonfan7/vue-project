@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Main from '../../components/main/main'
-import Page1 from '../../components/page1/page1'
+import Page1 from '../../components/pkm-list/pkm-list'
 import Test from '../../components/page2/page2'
 import NotFound from '../../components/noteFound/not-found'
 

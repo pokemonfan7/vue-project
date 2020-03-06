@@ -1,34 +1,28 @@
 <template>
   <div>
-    <span @click="toggleSeen">{{name}}</span>
-    <div v-bind:title="name">hahaha</div>
-    <div>{{total}}</div>
-    <div v-if="seen">you see me</div>
-    <div v-for="num in nums" :key="num">{{num}}</div>
+    <div>今天：{{todayNow | date-format}}</div>
+    <div>昨天：{{yesterdayDate | date-format}}</div>
+    <router-link to="/test">
+      <el-button type="primary">去test页面</el-button>
+    </router-link>
   </div>
 </template>
 
 <script>
+	import {mapActions, mapGetters, mapState} from "vuex";
+	import {GET_DATE} from "../../core/store/mutations";
+
 	export default {
-		data: function () {
-			return {
-				name: 'luca',
-				total: 1,
-				seen: true,
-				nums: [2, 4, 6, 8, 10]
-			}
-		},
-		methods: {
-			toggleSeen: function () {
-				this.seen = !this.seen
-				this.nums = [1, 3, 5, 7, 9]
-			}
+		computed: {
+			...mapState({'todayNow': 'date'}),
+			...mapGetters(['yesterdayDate']),
 		},
 		mounted() {
-			const that = this
-			setInterval(function () {
-				that.total++
-			}, 1000)
+			this.$store.commit(GET_DATE, Date.now())
+			this.$store.dispatch('threeHoursChangeDate')
+		},
+		methods: {
+			...mapActions(['threeHoursChangeDate']),
 		}
 	}
 </script>

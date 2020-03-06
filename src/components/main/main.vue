@@ -2,7 +2,7 @@
   <div class="container">
     <header>
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="/main">处理中心</el-menu-item>
+        <el-menu-item index="/main">口袋妖怪</el-menu-item>
         <el-menu-item index="/test">测试页面</el-menu-item>
       </el-menu>
     </header>
@@ -18,7 +18,7 @@
 	export default {
 		data() {
 			return {
-				activeIndex: '1',
+				activeIndex: '/main',
 			};
 		},
 		methods: {
@@ -51,7 +51,6 @@
       width: 100vw;
       height: calc(100vh - 62px);
       overflow: auto;
-      background-color: #777;
     }
   }
 </style>

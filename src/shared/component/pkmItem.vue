@@ -2,16 +2,16 @@
   <div>
     <figure class="img-content">
       <a class="img-link">
-        <img class="item-img" alt="" :src="pkmImgSrc">
+        <img class="item-img" alt="" v-lazy="pkmImgSrc">
       </a>
     </figure>
     <div class="item-info">
       <span class="item-num">#{{pkm.number}}</span>
       <h5 class="item-name">{{pkm.chName}}</h5>
       <h5 class="item-en-name">{{pkm.name}}</h5>
-      <span v-for="type of pkm.type" v-bind:key="type">
-        <span :class="`pokemon-type pokemon-type-${type}`">{{type}}</span>
-      </span>
+      <span :class="`pokemon-type pokemon-type-${type}`"
+            v-for="type of pkm.type"
+            v-bind:key="type">{{type | upper-first}}</span>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@
 			}
 		},
 		created() {
-			this.pkmImgSrc = require(`./pokemon/${this.pkm.number}.png`)
+			this.pkmImgSrc = require(`../../assets/pokemon/${this.pkm.number}.png`)
 		}
 	}
 </script>
@@ -61,7 +61,7 @@
     .item-num {
       font-family: "Flexo-Bold", arial, sans-serif;
       font-size: 80%;
-      color: #fff;
+      color: #000;
     }
 
     .item-name {
@@ -70,7 +70,7 @@
       text-transform: none;
       font-size: 145%;
       font-weight: 500;
-      color: #fff;
+      color: #000;
     }
 
     .item-en-name {
@@ -79,7 +79,7 @@
       text-transform: none;
       font-size: 145%;
       font-weight: 100;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(0, 0, 0, 0.7);
     }
   }
 
