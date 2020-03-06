@@ -1,37 +1,33 @@
 <template>
   <div class="container">
-    <!--    <img src="../../assets/logo.png" alt="">-->
-    <!--    <div>这是主要页面</div>-->
-    <header>Header</header>
+    <header>
+      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu-item index="/main">处理中心</el-menu-item>
+        <el-menu-item index="/test">测试页面</el-menu-item>
+      </el-menu>
+    </header>
     <div class="content">
-      <aside>Aside</aside>
       <main>
-        <router-link to="/test">
-          <el-button type="primary">去test页面</el-button>
-        </router-link>
-        <div>今天：{{todayNow | date-format}}</div>
-        <div>昨天：{{yesterdayDate | date-format}}</div>
+        <router-view></router-view>
       </main>
     </div>
   </div>
 </template>
 
 <script>
-	import {mapState, mapGetters, mapActions} from 'vuex'
-    import {GET_DATE} from '../../core/store/mutations'
-
 	export default {
-		computed: {
-			...mapState({'todayNow': 'date'}),
-			...mapGetters(['yesterdayDate']),
+		data() {
+			return {
+				activeIndex: '1',
+			};
 		},
-        mounted() {
-			this.$store.commit(GET_DATE, Date.now())
-            this.threeHoursChangeDate()
-        },
-        methods: {
-			...mapActions(['threeHoursChangeDate'])
-        }
+		methods: {
+			handleSelect(key) {
+				if (this.$route.path !== key) {
+					this.$router.push(key)
+				}
+			}
+		}
 	}
 </script>
 
@@ -51,16 +47,11 @@
     width: 100%;
     height: 100%;
 
-    aside {
-      width: 200px;
-      height: 100%;
-      background-color: lightblue;
-    }
-
     main {
-      flex: 1 0 auto;
-      height: 100%;
-      background-color: lightgray;
+      width: 100vw;
+      height: calc(100vh - 62px);
+      overflow: auto;
+      background-color: #ddd;
     }
   }
 </style>

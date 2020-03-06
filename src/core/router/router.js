@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Main from '../../components/main/main'
-import Test from '../../components/test/test'
+import Page1 from '../../components/page1/page1'
+import Test from '../../components/page2/page2'
+import NotFound from '../../components/noteFound/not-found'
 
 Vue.use(VueRouter)
 
@@ -14,11 +16,21 @@ export default new VueRouter({
 		},
 		{
 			path: '/main',
-			component: Main
+			component: Main,
+			children: [
+				{
+					path: '',
+					component: Page1
+				},
+				{
+					path: '/test',
+					component: Test
+				},
+			]
 		},
 		{
-			path: '/test',
-			component: Test
-		},
+			path: '*',
+			component: NotFound
+		}
 	]
 })
