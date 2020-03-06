@@ -2,8 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Main from '../../components/main/main'
-import Page1 from '../../components/pkm-list/pkm-list'
-import Test from '../../components/page2/page2'
+import PkmList from '../../components/pkm-list/pkm-list'
+import TestPage from '../../components/test-page/test-page'
+import Form from '../../components/form/form'
 import NotFound from '../../components/note-found/not-found'
 
 Vue.use(VueRouter)
@@ -20,11 +21,15 @@ export default new VueRouter({
 			children: [
 				{
 					path: '',
-					component: Page1
+					component: PkmList
 				},
 				{
 					path: '/test',
-					component: Test
+					component: TestPage
+				},
+				{
+					path: '/form',
+					component: Form
 				},
 			]
 		},
