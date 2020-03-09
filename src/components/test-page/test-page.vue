@@ -2,9 +2,9 @@
   <div>
     <div>今天：{{todayNow | date-format}}</div>
     <div>昨天：{{yesterdayDate | date-format}}</div>
-    <router-link to="/test">
-      <el-button type="primary">去test页面</el-button>
-    </router-link>
+    <el-button
+        type="primary"
+        v-delete-confirm="{alert: $alert, message: $message}">测试指令</el-button>
   </div>
 </template>
 
