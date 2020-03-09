@@ -2,15 +2,19 @@
   <div>
     <div>今天：{{todayNow | date-format}}</div>
     <div>昨天：{{yesterdayDate | date-format}}</div>
-    <el-button
-        type="primary"
-        v-delete-confirm="{alert: $alert, message: $message}">测试指令</el-button>
+    <div class="btn-group mr-2">
+      <el-button
+          type="primary"
+          v-delete-confirm="{alert: $alert, message: $message}">测试指令</el-button>
+      <delete-btn class="delete-btn" v-on:delete="deleteItem"></delete-btn>
+    </div>
   </div>
 </template>
 
 <script>
 	import {mapActions, mapGetters, mapState} from "vuex";
 	import {GET_DATE} from "../../core/store/mutations";
+	import deleteBtn from "../../shared/component/delete-btn";
 
 	export default {
 		computed: {
@@ -23,10 +27,20 @@
 		},
 		methods: {
 			...mapActions(['threeHoursChangeDate']),
-		}
+			deleteItem: function () {
+				alert('父组件接收到了删除确认的信息')
+			}
+		},
+        components: {deleteBtn}
 	}
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+  .btn-group {
+    display: flex;
 
+    .delete-btn {
+      margin-left: 10px;
+    }
+  }
 </style>

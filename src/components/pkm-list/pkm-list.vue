@@ -7,7 +7,7 @@
 </template>
 
 <script>
-	import PkmItem from "../../shared/component/pkmItem";
+	import PkmItem from "../../shared/component/pkm-item";
 	import {pkmGen1Data} from "../../core/pkmData";
 
 	export default {
