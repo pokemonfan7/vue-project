@@ -11,7 +11,7 @@
       <h5 class="item-en-name">{{pkm.name}}</h5>
       <span :class="`pokemon-type pokemon-type-${type}`"
             v-for="type of pkm.type"
-            v-bind:key="type">{{type | upper-first}}</span>
+            v-bind:key="type">{{type | upperFirst}}</span>
     </div>
   </div>
 </template>

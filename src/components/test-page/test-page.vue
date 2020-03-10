@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>今天：{{todayNow | date-format}}</div>
-    <div>昨天：{{yesterdayDate | date-format}}</div>
+    <div>今天：{{todayNow | dateFormat}}</div>
+    <div>昨天：{{yesterdayDate | dateFormat}}</div>
     <div class="btn-group mr-2">
       <el-button
           type="primary"
